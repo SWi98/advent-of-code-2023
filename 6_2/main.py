@@ -5,17 +5,6 @@ import queue
 import numpy as np
 
 
-MAPPING_TYPES = [
-    "seed-to-soil map:",
-    "soil-to-fertilizer map:",
-    "fertilizer-to-water map:",
-    "water-to-light map:",
-    "light-to-temperature map:",
-    "temperature-to-humidity map:",
-    "humidity-to-location map:"
-]
-
-
 def read_input_line(line: str) -> list[str]:
     line = line.split(":")[1].strip().split(" ")
     return [symbol for symbol in line if symbol.isnumeric()]

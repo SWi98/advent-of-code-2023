@@ -4,17 +4,6 @@ from tqdm import tqdm
 import queue
 
 
-MAPPING_TYPES = [
-    "seed-to-soil map:",
-    "soil-to-fertilizer map:",
-    "fertilizer-to-water map:",
-    "water-to-light map:",
-    "light-to-temperature map:",
-    "temperature-to-humidity map:",
-    "humidity-to-location map:"
-]
-
-
 def main():
     lines = read_lines("6_1/input.txt", rstrip=True)
     # lines = read_lines("6_1/test_input.txt", rstrip=True)
