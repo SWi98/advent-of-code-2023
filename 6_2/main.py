@@ -32,7 +32,7 @@ def linear_time_solution(time: int, distance: int) -> int:
 
 def constant_time_solution(time: int, distance: int) -> int:
     """
-    Solving: [ distance = speed(time - speed) ] === [ -speed^2 * x + speed * time - distance = 0 ]
+    Solving: [ distance = speed(time - speed) ] === [ -speed^2 + speed * time - distance = 0 ]
     """
     delta = (time ** 2) - (4 * (-1) * (-distance))
     s1 = ((-time) - np.sqrt(delta)) / (2 * -1)
