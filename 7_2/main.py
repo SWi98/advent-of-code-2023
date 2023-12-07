@@ -31,7 +31,6 @@ def get_card_strenght(card: str) -> int:
 
 
 def construct_possible_cards(cards: list[int]) -> list[list[int]]:
-    n = len(cards)
     res = []
     hands_to_handle: queue.Queue[list[int]] = queue.Queue()
     hands_to_handle.put(cards)
@@ -60,11 +59,9 @@ class Hand:
         self.hand_type = self.define_hand_type(self.cards)
         for hand in possible_hands:
             hand_type = self.define_hand_type(hand)
-            # print(f"Analyzing {hand} for {self.og_cards}. It gave {hand_type}; val: {hand_type.value}")
             if hand_type.value > self.hand_type.value:
                 self.hand_type = hand_type
                 self.best_cards = hand
-        # print("Selected type:", self.hand_type)
 
     def define_hand_type(self, cards: list[int]) -> HandType:
         unique_cards = set(cards)
@@ -111,13 +108,9 @@ class Hand:
             return False
         
     def __lt__(self, __value: "Hand") -> bool:
-        # print(f"Comparing {self.og_cards} to {__value.og_cards}")
-        # print(self.cards, __value.cards)
-        # print(self.best_cards, __value.cards)
         if self.hand_type == __value.hand_type:
             for my_card, their_card in zip(self.cards, __value.cards):
                 if my_card < their_card:
-                    # print(f"MY CARD {my_card} < THEIR CARD {their_card}")
                     return True
                 elif my_card > their_card:
                     return False
